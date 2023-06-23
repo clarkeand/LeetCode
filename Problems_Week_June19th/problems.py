@@ -56,3 +56,29 @@ class Solution(object):
             if x_str == reversed_string: 
                 return True
             return False
+        
+#reverse words that have a >= of 5
+def spin_words(sentence):
+    word_list = sentence.split(" ")
+    new_sentence = ""
+    for word in word_list:
+        if len(word) >= 5:
+            word = word[::-1]
+        new_sentence += word + " "
+    
+    new_sentence = new_sentence.rstrip()
+    return new_sentence
+
+#mask every digit with # except the last 4 digits: 
+def maskify(cc):
+    if len(cc) <= 4: 
+        return cc
+
+    return_string = ""
+    for i in range(len(cc)): 
+        if i >= len(cc) - 4: 
+            return_string += cc[i]
+        else: 
+            return_string += "#"
+                
+    return return_string
