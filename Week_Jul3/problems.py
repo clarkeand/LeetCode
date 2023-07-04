@@ -133,4 +133,37 @@ def tower_builder(n_floors):
         num_stars += 2
         num_spaces -= 2
                     
-    return floors_list       
+    return floors_list
+
+"""
+The marketing team is spending way too much time typing in hashtags.
+Let's help them with our own Hashtag Generator!
+
+Here's the deal:
+
+It must start with a hashtag (#).
+All words must have their first letter capitalized.
+If the final result is longer than 140 chars it must return false.
+If the input or the result is an empty string it must return false.
+"""
+
+def generate_hashtag(s):
+    #Set False return points
+    if s == "" or len(s)>140: 
+        return False
+    
+    #If any whitespace exists get rid of it
+    if s[0] == " ":
+        s.lstrip()
+    if s[-1] == " ":
+        s.rstrip()
+        
+    #split by whitespace and start a return string with a hashtag
+    string_list = s.split()
+    return_string = "#"
+    
+    #go through return string list and make the first letter uppercase and the return lowercase by slicing
+    for word in string_list: 
+        return_string += word[0].upper() + word[1:].lower()
+        
+    return return_string
