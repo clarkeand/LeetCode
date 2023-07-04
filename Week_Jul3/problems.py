@@ -116,3 +116,21 @@ def tribonacci(signature, n):
         i+=1
         sum = 0
     return trib_list
+
+"""Build Tower
+Build a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors. A tower block is represented with "*" character."""
+
+def tower_builder(n_floors):
+    num_stars = 1
+    num_spaces = n_floors * 2 - 2
+    floors_list = []
+    
+    if n_floors == 1: 
+        return ['*']
+    
+    for i in range(n_floors):
+        floors_list.append((" "*(num_spaces//2)) + ("*"*num_stars) + (" "*(num_spaces//2)))
+        num_stars += 2
+        num_spaces -= 2
+                    
+    return floors_list       
