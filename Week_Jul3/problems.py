@@ -236,3 +236,11 @@ def smaller(arr):
         output_array.append(counter)
         
     return output_array
+
+# 'return a list with the reverse order of l'
+def reverse_list(l):
+    stack = []
+    while len(l) > 0: 
+        stack.append(l.pop())
+        
+    return stack
