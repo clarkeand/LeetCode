@@ -221,3 +221,18 @@ def productFib(prod):
         return [fib_array[-2], fib_array[-1], True]
     else:
         return [fib_array[-2], fib_array[-1], False]
+    
+#Write a function that given, an array arr, returns an array containing at each index i the amount of numbers that are smaller than arr[i] to the right.
+
+def smaller(arr):
+    output_array = []
+    
+    for i in range(len(arr)):
+        counter = 0
+        current_num = arr[i]
+        for j in range(i+1, len(arr)):
+            if current_num > arr[j]:
+                counter += 1
+        output_array.append(counter)
+        
+    return output_array
