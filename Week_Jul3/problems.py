@@ -244,3 +244,27 @@ def reverse_list(l):
         stack.append(l.pop())
         
     return stack
+
+"""
+Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+
+HH = hours, padded to 2 digits, range: 00 - 99
+MM = minutes, padded to 2 digits, range: 00 - 59
+SS = seconds, padded to 2 digits, range: 00 - 59
+The maximum time never exceeds 359999 (99:59:59)
+
+You can find some examples in the test fixtures.
+"""
+
+def make_readable(seconds):
+    hours = (seconds/60)/60
+    minutes = (hours - int(hours))*60
+    seconds = (minutes - int(minutes)) * 60
+    seconds = round(seconds)
+    
+    if seconds == 60:
+        minutes += 1
+        seconds = 0
+    
+    string = f"{int(hours):02d}:{int(minutes):02d}:{seconds:02d}"
+    return string 
