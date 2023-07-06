@@ -306,3 +306,20 @@ def find_nb(m):
     if total_cubes == m: 
         return n - 1
     return -1
+
+#Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+def move_zeros(lst):
+    indeces_contain_zero = []
+    
+    for i in range(len(lst)-1): 
+        if lst[i] == 0:
+            indeces_contain_zero.append(i)
+            
+    index_adjust = 0
+    for item in indeces_contain_zero: 
+        lst.pop(item-index_adjust)
+        lst.append(0)
+        index_adjust += 1
+        
+    return lst
