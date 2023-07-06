@@ -323,3 +323,26 @@ def move_zeros(lst):
         index_adjust += 1
         
     return lst
+"""
+You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+
+Return the merged string.
+"""
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        new_string = ""
+        word1=list(word1)
+        word2=list(word2)
+
+        while word1 != [] or word2 !=[]:
+            if word1 != []:
+                new_string += word1.pop(0)
+            if word2 != []:
+                new_string += word2.pop(0)
+
+        return new_string
