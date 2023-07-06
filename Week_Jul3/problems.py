@@ -268,3 +268,41 @@ def make_readable(seconds):
     
     string = f"{int(hours):02d}:{int(minutes):02d}:{seconds:02d}"
     return string 
+
+"""
+Your task is to construct a building which will be a pile of n cubes. The cube at the bottom will have a volume of 
+�
+3
+n 
+3
+ , the cube above will have volume of 
+(
+�
+−
+1
+)
+3
+(n−1) 
+3
+  and so on until the top which will have a volume of 
+1
+3
+1 
+3
+ .
+
+You are given the total volume m of the building. Being given m can you find the number n of cubes you will have to build?
+"""
+
+import math
+
+def find_nb(m):
+    total_cubes = 0
+    n = 0
+    while total_cubes < m: 
+        total_cubes += pow(n,3)
+        n += 1
+        
+    if total_cubes == m: 
+        return n - 1
+    return -1
