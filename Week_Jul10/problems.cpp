@@ -16,3 +16,16 @@ string reverseString (string str )
     
   return return_string;
 }
+
+"""
+We need a function that can transform a number (integer) into a string.
+
+What ways of achieving this do you know?
+"""
+
+#include <string>
+
+std::string number_to_string(int num) {
+  std::string str = std::to_string(num);
+  return str;
+}
