@@ -54,4 +54,88 @@ def encrypt_by_n(user_string, n):
         new_string += chr(letter_ascii) 
 
     return new_string
-        
+
+"""
+Reverse Map
+
+Write a function that takes in a dictionary and returns a new dictionary where the keys and values have been reversed.
+
+The values in the new dictionary should be sets, because multiple keys in the original dictionary can have the same value. For example, with
+
+input = {
+	'a': 1,
+	'b': 3,
+	'c': 1,
+	'd': 4,
+}
+
+the output should be
+
+output = {
+	1: {'a', 'c'}
+	3: {'b'}
+	4: {'d'}
+}
+"""
+
+def reverse_dictionary(user_dict):
+    new_dict = dict()
+    for key in user_dict:
+        if new_dict[user_dict[key]] not in new_dict: 
+            new_dict[user_dict[key]] = set(key)
+        else:
+            new_dict[user_dict[key]].add(key)
+    
+    return new_dict
+
+print(reverse_dictionary({'a':1,'b':2,'c':1}))
+
+"""
+def reverse_dictionary(dict):
+    
+    new_dict = {}
+
+    for key in dict:
+        value = dict[key]
+        if value not in new_dict:
+            new_dict[value] = {key}
+        else:
+            new_dict[value].add(key)
+
+    return new_dict"""
+
+"""
+Transpose
+
+Take in a 2D grid like
+[
+	[1, 2, 3],
+	[4, 5, 6, 7],
+
+Return a new grid that has been "transposed", or flipped diagonally so that the rows become columns and vice versa:
+[
+	[1, 4],
+	[2, 5],
+	[3, 6],
+    [_, 7]
+]
+"""
+
+# Make a new list of lists (outside of whole loop)
+
+[
+    [1, 4]
+]
+
+def transpose(input_grid):
+    new_grid = []
+    for col_idx in range(len(input_grid[0])): # 0
+        new_grid.append([])
+        for row_idx in range(len(input_grid)): # 1
+            new_grid[col_idx].append(input_grid[row_idx][col_idx])
+    return new_grid
+
+print(transpose([
+	[1, 2, 3],
+	[4, 5, 6],
+]))
