@@ -140,14 +140,6 @@ print(transpose([
 	[4, 5, 6],
 ]))
 
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
 #
 # Complete the 'plusMinus' function below.
 #
@@ -170,9 +162,22 @@ def plusMinus(arr):
     print(negative_count/len(arr))
     print(zero_count/len(arr))
 
-if __name__ == '__main__':
-    n = int(input().strip())
+#
+# Complete the 'miniMaxSum' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
 
-    arr = list(map(int, input().rstrip().split()))
-
-    plusMinus(arr)
+def miniMaxSum(arr):
+    arr.sort()
+    lowest_sum = 0
+    highest_sum = 0 
+    for i in range(len(arr)): 
+        if i == 0: 
+            lowest_sum += arr[i]
+        elif i == 4:
+            highest_sum += arr[i]
+        else:
+            lowest_sum += arr[i]
+            highest_sum += arr[i]
+    print (f"{lowest_sum} {highest_sum}")
