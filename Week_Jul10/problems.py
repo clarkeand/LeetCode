@@ -181,3 +181,19 @@ def miniMaxSum(arr):
             lowest_sum += arr[i]
             highest_sum += arr[i]
     print (f"{lowest_sum} {highest_sum}")
+
+#Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+
+def timeConversion(s):
+    hours = int(s[0:2])
+    minutes = int(s[3:5])
+    seconds = int(s[6:8])
+    am_or_pm = s[8:10]
+    
+    if hours == 12 and am_or_pm == "AM":
+        return f"00:{minutes:02d}:{seconds:02d}"
+    
+    if am_or_pm == 'PM' and hours != 12:
+        hours += 12
+        
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
