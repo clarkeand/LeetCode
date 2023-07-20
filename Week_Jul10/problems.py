@@ -251,3 +251,41 @@ class Solution(object):
             result_list.append(counter)
     
         return result_list
+    
+"""
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+"""
+    
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode()  # Dummy node to simplify the code
+        curr = dummy  # Pointer to the current node
+        carry = 0  # Carry digit
+
+        while l1 or l2 or carry:
+            # Calculate the sum of current digits and carry
+            sum_val = carry
+
+            # If l1 is not None, add its value to sum_val
+            if l1:
+                sum_val += l1.val
+                l1 = l1.next
+
+            # If l2 is not None, add its value to sum_val
+            if l2:
+                sum_val += l2.val
+                l2 = l2.next
+
+        # Update the carry and create a new node for the sum_val
+            carry = sum_val // 10
+            curr.next = ListNode(sum_val % 10)
+            curr = curr.next
+
+        return dummy.next
