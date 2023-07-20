@@ -222,3 +222,32 @@ class Solution(object):
             else:
                 unique_list.append(counter[key])
         return True
+    
+"""
+You have n boxes. You are given a binary string boxes of length n, where boxes[i] is '0' if the ith box is empty, and '1' if it contains one ball.
+
+In one operation, you can move one ball from a box to an adjacent box. Box i is adjacent to box j if abs(i - j) == 1. Note that after doing so, there may be more than one ball in some boxes.
+
+Return an array answer of size n, where answer[i] is the minimum number of operations needed to move all the balls to the ith box.
+
+Each answer[i] is calculated considering the initial state of the boxes.
+"""
+    
+class Solution(object):
+    def minOperations(self, boxes):
+        num_list = []
+        result_list = []
+        sum_nums = 0
+        for char in boxes: 
+            num_list.append(int(char))
+            if char == "1":
+                sum_nums += 1
+            
+        for i in range(len(num_list)):
+            counter = 0
+            for j in range(len(num_list)):
+                if num_list[j] == 1:
+                    counter += abs(j - i)
+            result_list.append(counter)
+    
+        return result_list
