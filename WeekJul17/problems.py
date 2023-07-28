@@ -137,3 +137,30 @@ def plus(num): return '+',num
 def minus(num): return "-",num
 def times(num): return "*",num
 def divided_by(num): return '//',num
+
+"""
+In this example you have to validate if a user input string is alphanumeric. The given string is not nil/null/NULL/None, so you don't have to check that.
+
+The string has the following conditions to be alphanumeric:
+
+At least one character ("" is not valid)
+Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
+No whitespaces / underscore
+"""
+def alphanumeric(password):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    numbers= '0123456789'
+    number_in_pw = False
+    letter_in_pw = False
+    for char in password:
+        if char in numbers:
+            number_in_pw = True
+        elif char.lower() in alphabet: 
+            letter_in_pw = True
+        else:
+            return False
+    
+    if number_in_pw == True or letter_in_pw == True: 
+        return True
+    
+    return False
