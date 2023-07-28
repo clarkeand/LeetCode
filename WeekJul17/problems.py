@@ -1,7 +1,13 @@
 """
-Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes?
+Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately 
+he is not good in maths. Can you help him to find out, how many cakes he could bake 
+considering his recipes?
 
-Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
+Write a function cakes(), which takes the recipe (object) and the available 
+ingredients (also an object) and returns the maximum number of cakes Pete can 
+bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of 
+flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present 
+in the objects, can be considered as 0.
 """
 
 def cakes(recipe, available):
@@ -15,7 +21,8 @@ def cakes(recipe, available):
             min_cakes = recipe_quotient
     return min_cakes
 
-"""In this kata we want to convert a string into an integer. The strings simply represent the numbers in words.
+"""In this kata we want to convert a string into an integer. 
+The strings simply represent the numbers in words.
 
 Examples:
 
@@ -64,7 +71,8 @@ def parse_int(string):
     return result
 
 """
-This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+This time we want to write calculations using functions and get the results. 
+Let's have a look at some examples:
 
 seven(times(five())) # must return 35
 four(plus(nine())) # must return 13
@@ -139,7 +147,8 @@ def times(num): return "*",num
 def divided_by(num): return '//',num
 
 """
-In this example you have to validate if a user input string is alphanumeric. The given string is not nil/null/NULL/None, so you don't have to check that.
+In this example you have to validate if a user input string is alphanumeric. 
+The given string is not nil/null/NULL/None, so you don't have to check that.
 
 The string has the following conditions to be alphanumeric:
 
