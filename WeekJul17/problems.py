@@ -62,3 +62,78 @@ def parse_int(string):
 
     result += current_number
     return result
+
+"""
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+seven(times(five())) # must return 35
+four(plus(nine())) # must return 13
+eight(minus(three())) # must return 5
+six(divided_by(two())) # must return 3
+"""
+
+def complete_equation(num,opnum):
+    if opnum[0] == "+":
+        return num+opnum[1]
+    elif opnum[0] == "-":
+        return num-opnum[1]
+    elif opnum[0] == "*":
+        return num*opnum[1]
+    else:
+        return num//opnum[1]
+
+def zero(op = ""): 
+    if op == "": 
+        return 0 
+    else: 
+        return complete_equation(0,op)
+def one(op = ""): 
+    if op == "": 
+        return 1 
+    else: 
+        return complete_equation(1,op)
+def two(op = ""): 
+    if op == "": 
+        return 2  
+    else: 
+        return complete_equation(2,op)
+def three(op = ""): 
+    if op == "": 
+        return 3 
+    else: 
+        return complete_equation(3,op)
+def four(op = ""): 
+    if op == "": 
+        return 4 
+    else: 
+        return complete_equation(4,op)
+def five(op = ""): 
+    if op == "": 
+        return 5 
+    else: 
+        return complete_equation(5,op)
+def six(op = ""): 
+    if op == "": 
+        return 6 
+    else: 
+        return complete_equation(6,op)
+def seven(op = ""): 
+    if op == "": 
+        return 7 
+    else: 
+        return complete_equation(7,op)
+def eight(op = ""): 
+    if op == "": 
+        return 8 
+    else: 
+        return complete_equation(8,op)
+def nine(op = ""): 
+    if op == "": 
+        return 9 
+    else: 
+        return complete_equation(9,op)
+
+def plus(num): return '+',num
+def minus(num): return "-",num
+def times(num): return "*",num
+def divided_by(num): return '//',num
