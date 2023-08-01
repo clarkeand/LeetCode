@@ -62,3 +62,30 @@ def parse_int(string):
 
     result += current_number
     return result
+
+"""
+Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
+
+You may return the answer in any order.
+"""
+
+class Solution(object):
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        def backtrack(start, path):
+            if len(path) == k:
+                results_list.append(path[:])  # Make a copy of the current combination
+                return
+            
+            for i in range(start, n + 1):
+                path.append(i)
+                backtrack(i + 1, path)
+                path.pop()
+
+        results_list = []
+        backtrack(1, [])
+        return results_list
