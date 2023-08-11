@@ -85,6 +85,59 @@ class Solution(object):
                 path.append(i)
                 backtrack(i + 1, path)
                 path.pop()
+"""
+There is a secret string which is unknown to you. Given a collection of random triplets from the string, recover the original string.
+
+A triplet here is defined as a sequence of three letters such that each letter occurs somewhere before the next in the given string. "whi" is a triplet for the string "whatisup".
+
+As a simplification, you may assume that no letter occurs more than once in the secret string.
+
+You can assume nothing about the triplets given to you other than that they are valid triplets and that they contain sufficient information to deduce the original string. In particular, this means that the secret string will never contain letters that do not occur in one of the triplets given to you.
+"""
+
+def recoverSecret(triplets):
+    #triplets is a list of triplets from the secrent string. Return the string.
+    #First we are going to create a dictionary with a list of values as keys
+    solution_graph = dict()
+    solution_string = ""
+    #Go through each item in triplets and create a key if none exists otherwise 
+    #add next elements to the letter's list
+    for item in triplets:
+        for i in range(len(item)):
+            if item[i] not in solution_graph:
+                solution_graph[item[i]] = []
+            if i == 0: 
+                if item[1] not in solution_graph[item[0]]:
+                    solution_graph[item[0]].append(item[1])
+                if item[2] not in solution_graph[item[0]]:
+                    solution_graph[item[0]].append(item[2])
+            elif i == 1: 
+                if item[2] not in solution_graph[item[1]]:
+                    solution_graph[item[1]].append(item[2])
+    
+    
+    # Now let's add the DFS-based topological sort
+
+    # Step 1: Define the DFS function
+    def topologicalSort(node):
+        visited[node] = True
+        for neighbor in solution_graph[node]:
+            if not visited[neighbor]:
+                topologicalSort(neighbor)
+        result.insert(0, node)
+
+    # Step 2: Initialize variables for DFS
+    visited = {node: False for node in solution_graph}
+    result = []
+
+    # Step 3: Perform topological sort for each unvisited node
+    for node in solution_graph:
+        if not visited[node]:
+            topologicalSort(node)
+
+    # Step 4: Convert result to the final string
+    solution_string = ''.join(result)
+    return solution_string
 
         results_list = []
         backtrack(1, [])
