@@ -44,3 +44,9 @@ class Solution(object):
                 longest_palindrome = palindrome2
 
         return longest_palindrome
+    
+    def findMedian(arr):
+        #First sort the array so that we can properly find the median
+        arr.sort()
+        #return the middle point of the array and use python's // to make sure there isn't a remainder in division.
+        return (arr[len(arr)//2])
